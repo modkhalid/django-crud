@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from second_app.models import AccessRecord
+from .forms import FormName
 # Create your views here.
 def index(request):
     dic={'content':"hello my name is khalid khan"}
@@ -15,3 +16,14 @@ def dater(request):
     # print(date_list[0].name)
     dic={'my_list':date_list}
     return render(request,'list.html',context=dic)
+
+
+def form(request):
+    name=""
+    form=FormName()
+    if request.method =='POST':
+        form=FormName(request.POST)
+        
+        if form.is_valid():
+            name=form.cleaned_data
+    return render(request,'form.html',{'form':form,'name':name})
