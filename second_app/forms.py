@@ -1,7 +1,7 @@
 from django import forms
-
+from django.core import validators
 class FormName(forms.Form):
-    name=forms.CharField(max_length=264)
+    name=forms.CharField(max_length=264,validators=[validators.MaxLengthValidator(3)])
     email=forms.EmailField()
     text=forms.CharField(widget=forms.Textarea)
 
