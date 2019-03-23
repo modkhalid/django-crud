@@ -5,4 +5,5 @@ urlpatterns=[
     url(r'^help/$',views.help,name="help"),
     url(r'^list/$',views.dater,name='dater'),
     url(r'^form/$',views.form,name='form'),
+    url(r'^webpage/$',views.upload_page,name="page")
 ]
