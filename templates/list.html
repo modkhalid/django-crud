@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List</title>
+    <link rel="stylesheet" href='{% static "css/main.css" %}'>
+
+</head>
+<body>
+    {% if my_list %}
+        <table  border="1" cellpadding="5" cellspacing="0">
+                <tr style="font-weight:bolder">
+                    <td>name</td>
+                    <td>date</td>
+                </tr>
+            {% for l in my_list %}
+                <tr>
+                    <td>{{ l.name }}</td>
+                    <td>{{ l.date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+    {% endif %}
+</body>
+</html>
