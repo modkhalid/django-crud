@@ -4,8 +4,9 @@ from second_app.models import AccessRecord
 from .forms import FormName,WebForm
 # Create your views here.
 def index(request):
-    dic={'content':"hello my name is khalid khan"}
-    return render(request,'index.html',context=dic)
+#     dic={'content':"hello my name is khalid khan"}
+#     return render(request,'index.html',context=dic)
+        return render(request,'first_app/other.html')
 
 def help(request):
     dic={'help':'i cant help'}
