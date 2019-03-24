@@ -19,6 +19,6 @@ from first_app import views
 from second_app import views as v2
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.index,name="index"),
+    url(r'^$',views.registration,name="index"),
     url(r'^second/',include('second_app.urls'))
 ]
