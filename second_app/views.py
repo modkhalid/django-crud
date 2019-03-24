@@ -32,6 +32,7 @@ def form(request):
 def upload_page(request):
     form=WebForm()
     if request.method =='POST':
+        # print(request.POST)
         form=WebForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
