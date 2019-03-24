@@ -17,8 +17,12 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from first_app import views 
 from second_app import views as v2
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.registration,name="index"),
-    url(r'^second/',include('second_app.urls'))
+    url(r'^$',views.index,name="index"),
+    url(r'^home/$',views.registration,name="index1"),
+    url(r'^second/',include('second_app.urls')),
+    url(r'^login/$',views.user_login,name='user_login'),
+    url(r'^logout/$',views.user_logout,name='user_logout')
 ]

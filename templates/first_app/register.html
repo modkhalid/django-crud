@@ -5,7 +5,7 @@
     {% if not registered %}
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
-            {{ user.as_p }}
+            {{ user_form.as_p }}
             {{ profile.as_p }}
             <button type="submit">register</button>
         </form>

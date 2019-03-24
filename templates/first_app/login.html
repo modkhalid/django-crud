@@ -1,0 +1,14 @@
+{% extends 'first_app/basic.html' %}
+
+{% block body_block %}
+<form action="{% url 'user_login'%}" method="POST" >
+    {% csrf_token %}
+    <label for="username">username</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="password">password </label>
+    <input type="password" name="password" id="password">
+    <br>
+    <button type="submit">submit</button>
+</form>
+{% endblock %}
