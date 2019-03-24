@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from first_app import views 
-from second_app import views as v2
+# from second_app import views as v2
+# from CBV import views as cbviews
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +26,6 @@ urlpatterns = [
     url(r'^home/$',views.registration,name="index1"),
     url(r'^second/',include('second_app.urls')),
     url(r'^login/$',views.user_login,name='user_login'),
-    url(r'^logout/$',views.user_logout,name='user_logout')
+    url(r'^logout/$',views.user_logout,name='user_logout'),
+    url(r'^cbv/', include('CBV.urls'))
 ]
