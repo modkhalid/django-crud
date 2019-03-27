@@ -1,0 +1,24 @@
+{% extends "CBV/base.html" %}
+
+{%block body_block %}
+
+<div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title">{{school_detail.name}}</h5>
+      
+      <p>{{school_detail.address}}</p>
+      <p>{{school_detail.principal}}</p>
+      <a href="{% url 'cbv:school_list'%}" class="btn btn-primary">Back to list Home</a>
+        <h1 mt-2 class="">Student LIst</h1>
+      
+      {% for stud in school_detail.student.all %}
+
+      <div class="alert alert-primary mt-1">{{stud.name}} is <small>{{stud.age}} old.</small></div>
+        
+
+      {% endfor %}
+
+    </div>
+  </div> 
+
+{% endblock %}

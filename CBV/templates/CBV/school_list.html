@@ -1,0 +1,20 @@
+{% extends "CBV/base.html" %}
+{%block body_block %}
+
+    {% for school in school_list.all %}
+        <div class="card mt-4">
+            <div class="card-header">
+                <a href="../detail/{{school.id}}">{{school.name}}</a>
+            </div>
+            <div class="card-body">
+                {{school.principal}}
+                <br>
+                {{school.address}}
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+
+{% endblock %}
