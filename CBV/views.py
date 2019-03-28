@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import (View,TemplateView,ListView,DetailView,
                                     UpdateView,CreateView,DeleteView,)
                                     
-
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse
 from . import models
 class MyView(View):
@@ -36,3 +36,9 @@ class MyCreate(CreateView):
 class MyUpdate(UpdateView):
     fields=('name','principal')
     model=models.School
+
+
+
+class MyDelete(DeleteView):
+    model=models.School
+    success_url=reverse_lazy("cbv:school_list")
