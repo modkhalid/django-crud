@@ -9,4 +9,5 @@ urlpatterns=[
     url(r'^list/$',views.MyList.as_view(),name="school_list"),
     url(r'^detail/(?P<pk>\d+)/$',views.MyDetail.as_view(),name="school_detail"),
     url(r'^create/$',views.MyCreate.as_view(),name="school_create"),
+    url(r'^update/(?P<pk>\d+)/$',views.MyUpdate.as_view(),name="update"),
 ]

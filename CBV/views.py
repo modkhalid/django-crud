@@ -32,3 +32,7 @@ class MyDetail(DetailView):
 class MyCreate(CreateView):
     model=models.School
     fields=('name','principal','address')
+
+class MyUpdate(UpdateView):
+    fields=('name','principal')
+    model=models.School

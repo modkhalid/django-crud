@@ -1,6 +1,6 @@
 {% extends "CBV/base.html" %}
 {%block body_block %}
-
+    <a href="{% url 'cbv:school_create' %}" class="btn btn-warning">Create</a>
     {% for school in school_list.all %}
         <div class="card mt-4">
             <div class="card-header">
