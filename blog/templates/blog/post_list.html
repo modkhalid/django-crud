@@ -1,0 +1,33 @@
+{% extends 'blog/base.html'%}
+
+{% block body_block%}
+
+{% for post in post_list %}
+    <div class="alert alert-primary mb-3">
+        <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post}}</a></h1>
+        {{post.text | cut:' '}}
+        <br>
+        written by- <b style="text-decoration:underline">{{post.author}} @ {{post.created_date}}</b>
+        {% if user.is_authenticated %}
+        <div class="text-right">
+            {% if post.published_date is null %}
+            <a class="btn btn-warning" href="{% url 'blog:post_publish' pk=post.pk %}">publish {{post}}</a>
+            {%endif %}
+            <a class="btn btn-warning" href="{% url 'blog:post_update' pk=post.pk %}">update {{post}}</a>
+            <a class="btn btn-danger" href="{% url 'blog:post_delete' pk=post.pk %}">delete {{post}}</a>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,logout,authenticate
@@ -51,19 +51,26 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-
-                return HttpResponseRedirect(reverse('index'))
+                
+                
+                # return HttpResponseRedirect(reverse('blog:about'))
+                return redirect(data.get('next'))
+                
+                # return HttpResponse("<h1>You are not login mother fucker</h1>")
             else:
                 return HttpResponse("<h1>You are not login mother fucker</h1>")
         else:
             print("user name: {} and password {} are wrong".format(username,password))
             return HttpResponseRedirect(reverse('user_login'))
-            
-    return render(request,'first_app/login.html')
+
+    next1=request.GET.get('next')
+    if next1 is None:
+        next1="/"   
+    return render(request,'first_app/login.html',{'next':next1})
 
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('blog:about'))
 
     

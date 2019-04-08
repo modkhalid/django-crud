@@ -1,0 +1,13 @@
+{% extends "CBV/base.html" %}
+{%block body_block %}
+    <h1>{{school.name}}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a href="{% url 'cbv:school_detail' pk=school.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+
+
+{% endblock %}

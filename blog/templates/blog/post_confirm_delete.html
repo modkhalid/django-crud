@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{%block body_block %}
+    <h1>{{post}}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a href="{% url 'blog:post_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+
+
+{% endblock %}

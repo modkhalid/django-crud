@@ -1,0 +1,14 @@
+{% extends 'blog/base.html'%}
+
+{% block body_block%}
+    {% if post_detail %}
+
+        {{post_detail}}
+
+        <a class="btn btn-warning" href="{% url 'blog:post_publish' pk=post_detail.pk %}">Publish </a>
+
+    {% endif %}
+
+
+
+{% endblock %}
